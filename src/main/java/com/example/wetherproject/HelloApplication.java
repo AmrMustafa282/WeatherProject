@@ -189,23 +189,12 @@ public class HelloApplication extends Application {
                 weatherDetailsPage.start(stage);
             });
 
-            Button saveToDB = new Button("save to DB");
-            saveToDB.setPadding(new Insets(10));
-            saveToDB.setMinWidth(110);
-            saveToDB.setStyle("-fx-background-color: #9e9e9e ;-fx-padding: 5;-fx-text-fill: black;-fx-font-weight: bold");
-            saveToDB.setOnAction(e->{
-                SaveToDB DB = new SaveToDB(jsonObject);
-                DB.start(new Stage());
-                System.out.println(jsonObject.getJSONObject("current"));
 
-            });
 
-            HBox buttons = new HBox(10);
-            buttons.getChildren().addAll(button,saveToDB);
             gridPaneBtn.add(imageViewBtn, 0, 0, 2, 1);
             gridPaneBtn.add(iconView, 3,0);
             gridPaneBtn.add(lb, 2, 0);
-            gridPaneBtn.add(buttons, 0, 1, 2, 1);
+            gridPaneBtn.add(button, 0, 1, 2, 1);
 //            gridPaneBtn.add(button, 0, 1);
 //            gridPaneBtn.add(saveToDB,2,1,4,1);
 

@@ -1,8 +1,11 @@
 package com.example.wetherproject;
 
 import javafx.application.Application;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -299,14 +302,29 @@ public class WeatherDetails extends Application {
         }
 
 
+        // Save to Database
+        Button saveToDB = new Button("save to DB");
+        saveToDB.setPadding(new Insets(10));
+        saveToDB.setMinWidth(110);
+        saveToDB.setStyle("-fx-background-color: #9e9e9e ;-fx-padding: 5;-fx-text-fill: black;-fx-font-weight: bold");
+        saveToDB.setOnAction(e->{
+            SaveToDB DB = new SaveToDB(weatherData);
+            DB.start(new Stage());
+//            System.out.println(weatherData.getJSONObject("current"));
+
+        });
+
         container.add(currentPane,0,0);
         container.add(todayHighlightBox, 1, 0, 1, 2);
         container.add(forecastGrid,0,1);
+        container.add(saveToDB,0,2);
+        container.setAlignment(Pos.CENTER);
+//        container.setAlignment(saveToDB, HPos.CENTER);
 
         root.getChildren().addAll(container);
         root.setStyle("-fx-background-color: #131216");
 
-        Scene scene = new Scene(root, 1090, 650);
+        Scene scene = new Scene(root, 1090, 700);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
