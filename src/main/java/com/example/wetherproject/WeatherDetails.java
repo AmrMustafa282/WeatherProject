@@ -314,17 +314,19 @@ public class WeatherDetails extends Application {
 
         });
 
+        forecastGrid.add(saveToDB,0,4);
+
         container.add(currentPane,0,0);
         container.add(todayHighlightBox, 1, 0, 1, 2);
         container.add(forecastGrid,0,1);
-        container.add(saveToDB,0,2);
-        container.setAlignment(Pos.CENTER);
+//        container.add(saveToDB,0,2);
+//        container.setAlignment(Pos.CENTER);
 //        container.setAlignment(saveToDB, HPos.CENTER);
 
         root.getChildren().addAll(container);
         root.setStyle("-fx-background-color: #131216");
 
-        Scene scene = new Scene(root, 1090, 700);
+        Scene scene = new Scene(root, 1090, 650);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
